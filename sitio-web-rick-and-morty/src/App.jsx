@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-gradient-to-br from-blue-900 to-green-700 w-full relative mt-16">
+      <div className="bg-gradient-to-br from-black to-green-800 w-full relative mt-16">
         <NavBar />
         <div className="flex flex-wrap justify-center">
           {characters.map((character, index) => (
