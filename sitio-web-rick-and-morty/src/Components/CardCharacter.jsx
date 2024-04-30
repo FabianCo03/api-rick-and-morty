@@ -10,7 +10,7 @@ const CardCharacter = ({
 }) => {
   return (
     <>
-      <div className="bg-gradient-to-br from-green-900 to-purple-900 rounded-lg p-2 m-2 mt-16 relative">
+      <div className="bg-gradient-to-r from-green-500 to-purple-700 rounded-lg p-2 m-2 mt-16 relative">
         <img
           className="w-full rounded-lg transition-opacity duration-300 hover:opacity-80 cursor-pointer object-cover"
           src={imgCharacter}

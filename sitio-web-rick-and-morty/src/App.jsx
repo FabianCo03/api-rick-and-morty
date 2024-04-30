@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import CardCharacter from './Components/CardCharacter'
 import NavBar from './Components/NavBar'
+import InfoDataApi from './Components/InfoDataApi'
 
 function App() {
   const [characters, setCharacters] = useState([])
+
+  const [showInfoDataApi, setShowInfoDataApi] = useState(false)
+
+  const toggleInfoDataApi = () => {
+    setShowInfoDataApi(!showInfoDataApi)
+  }
 
   useEffect(() => {
     const getDataApi = async () => {
@@ -38,9 +45,12 @@ function App() {
 
   return (
     <>
-      <div className="bg-gradient-to-br from-black to-green-800 w-full relative mt-16">
-        <NavBar />
-        <div className="flex flex-wrap justify-center">
+      <div className="bg-gradient-to-r from-gray-900 to-green-700 w-full relative mt-16">
+        <div className="z-50 absolute top-0 right-0 text-sm text-white h-full mt-3">
+          {showInfoDataApi && <InfoDataApi data={characters} />}
+        </div>
+        <NavBar toggleInfoDataApi={toggleInfoDataApi} />
+        <div className="flex flex-wrap justify-center z-0">
           {characters.map((character, index) => (
             <CardCharacter
               key={index}
