@@ -5,7 +5,7 @@ const InfoDataApi = ({ data }) => {
       style={{ backdropFilter: 'blur(10px)', background: 'rgba(0, 0, 0, 0.5)' }}
     >
       <div className="flex justify-center p-8">
-        <h2 className="text-3xl font-bold text-white bg-gradient-to-r from-black to-gray-500 px-4 py-2 rounded">
+        <h2 className="text-3xl font-bold text-white bg-gradient-to-r from-blue-900 to-green-900 px-4 py-2 rounded">
           Datos encontrados: {data.length}
         </h2>
       </div>
