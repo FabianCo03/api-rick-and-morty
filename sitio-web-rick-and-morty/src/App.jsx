@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import CardCharacter from './Components/CardCharacter'
-import NavBar from './Components/NavBar'
-import InfoDataApi from './Components/InfoDataApi'
+import CardCharacter from './components/CardCharacter'
+import NavBar from './components/NavBar'
+import InfoDataApi from './components/InfoDataApi'
+import { getData } from './services/getData'
 
 function App() {
   const [characters, setCharacters] = useState([])
-
   const [showInfoDataApi, setShowInfoDataApi] = useState(false)
 
   const toggleInfoDataApi = () => {
@@ -13,19 +13,11 @@ function App() {
   }
 
   useEffect(() => {
-    const getDataApi = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          'https://rickandmortyapi.com/api/character',
-        )
-        if (!response.ok) {
-          throw new Error('No responde el API')
-        }
-
-        const oData = await response.json()
-
-        if (oData.results && oData.results.length > 0) {
-          const charactersData = oData.results.map((character) => ({
+        const data = await getData()
+        if (data && data.results && data.results.length > 0) {
+          const charactersData = data.results.map((character) => ({
             imgCharacter: character.image,
             nameCharacter: character.name,
             originCharacter: character.origin.name,
@@ -39,8 +31,7 @@ function App() {
         console.error('Error fetching data:', error)
       }
     }
-
-    getDataApi()
+    fetchData()
   }, [])
 
   return (
